@@ -1,0 +1,54 @@
+//Responsivo tablet
+@include breakpoint(tablet) {
+    .info-container {
+        flex-direction: row;
+        text-align: start;
+    }
+    .info-item {
+        margin-bottom: 20px;
+    }
+
+    .profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .list-tech-hobb-skills ul {
+        li {
+            flex: 1 1 calc(33.33% - 20px);
+        }
+    }
+
+    .contact-info ul {
+        li {
+            font-size: calc($size-fuente-base + 1px);
+        }
+    }
+}
+
+//responsivo movil
+@include breakpoint(movil) {
+    .info-container {
+        flex-direction: column;
+        text-align: start;
+    }
+    .info-item {
+        margin-bottom: 20px;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+    }
+
+    .list-tech-hobb-skills ul {
+        li {
+            flex: 1 1 calc(33.33% - 20px);
+        }
+    }
+
+    main {
+        padding: 10px;
+    }
+}
