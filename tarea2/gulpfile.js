@@ -1,13 +1,16 @@
+//Gulp
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const cleanCss = require('gulp-clean-css');
 const copy = require('gulp-copy');
 const replace = require('gulp-replace');
-const imagemin = require('gulp-imagemin');
+//BrowserSync
 const browserSync = require('browser-sync');
-
-const tsc = require('gulp-typescript')
+//Typescript
+const tsc = require('gulp-typescript');
+//cpx
+const { exec } = require('child_process');
 
 //scripts
 gulp.task('scripts', () => {
@@ -49,11 +52,19 @@ gulp.task('styles:dev', () => {
 });
 
 //assets
-gulp.task('assets', () => {
-    return gulp.src('src/assets/**/*.{jpg,jpeg,png,gif,svg}')
-        .pipe(imagemin())
+gulp.task('assets', (done) => {
+    exec('cpx "src/assets/**/*.{jpg,jpeg,png,gif,svg,mp3,mp4,mov}" "dist/assets"', (err, stdout, stderr) => {
+        if (err) {
+            console.error(`Error: ${stderr}`);
+            done(err);
+        } else {
+            console.log(`Output: ${stdout}`);
+            done();
+        }
+    });
+    //return gulp.src('src/assets/**/*.{jpg,jpeg,png,gif,svg}')
         //.pipe(copy('dist', { prefix: 1 }))
-        .pipe(gulp.dest('dist/assets'));
+        //.pipe(gulp.dest('dist/assets'));
 });
 
 //HTML
