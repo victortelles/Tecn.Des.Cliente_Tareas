@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "script": "tsc",
+
+    "script": "gulp scripts",
     "styles": "gulp styles",
     "html": "gulp html",
     "assets": "gulp assets",
     "build": "gulp",
-    "script:dev": "tsc",
+
+    "script:dev": "gulp scripts:dev",
     "styles:dev": "gulp styles:dev",
+    "html:dev":"html:dev",
     "assets:dev": "gulp assets",
-    "build:dev": "gulp build:dev && gulp assets:dev && styles:dev && script:dev",
-    "dev": "gulp build:dev && gulp serve"
+    "build:dev": "gulp build:dev"
   },
   "keywords": [],
   "author": "Victor Telles - 737066",
