@@ -4,6 +4,7 @@ const concat = require('gulp-concat');
 const cleanCss = require('gulp-clean-css');
 const copy = require('gulp-copy');
 const replace = require('gulp-replace');
+const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 
 const tsc = require('gulp-typescript')
@@ -16,8 +17,8 @@ gulp.task('scripts', () => {
             target: 'ES6',
             isolatedModules: true,
         }))
-        .pipe(remplace(/\sfrom '(\.\/[^']+)'/g," from 'main.js'"))
-        .pipe(gulp.dest(dist/scripts));
+        .pipe(replace(/\sfrom '(\.\/[^']+)'/g," from 'index.js'"))
+        .pipe(gulp.dest("dist/scripts"));
 });
 
 gulp.task('scripts:dev', () => {
@@ -27,8 +28,8 @@ gulp.task('scripts:dev', () => {
             target: 'ES6',
             isolatedModules: true
         }))
-        .pipe(remplace(/\sfrom '(\.\/[^']+)'/g," from 'main.js'"))
-        .pipe(gulp.dest(dist/scripts));
+        .pipe(replace(/\sfrom '(\.\/[^']+)'/g," from 'index.js'"))
+        .pipe(gulp.dest("dist/scripts"));
 });
 
 //styles
@@ -49,9 +50,18 @@ gulp.task('styles:dev', () => {
 
 //assets
 gulp.task('assets', () => {
-    return gulp.src('src/assets/**/*')
-        .pipe(copy('dist', { prefix: 1 }))
+    return gulp.src('src/assets/**/*.{jpg,jpeg,png,gif,svg}')
+        .pipe(imagemin())
+        //.pipe(copy('dist', { prefix: 1 }))
         .pipe(gulp.dest('dist/assets'));
+});
+
+//HTML
+gulp.task('html', () => {
+    return gulp.src('src/*.html')
+        .pipe(replace('./assets/', 'assets/'))
+        .pipe(replace('main.css', 'main.min.css'))
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('html:dev', () => {
@@ -59,23 +69,28 @@ gulp.task('html:dev', () => {
             .pipe(gulp.dest('dist'));
 });
 
-gulp.task('html', () => {
-    return gulp.src('src/*.html')
-        .pipe(replace('main.css', 'main.min.css'))
-        .pipe(gulp.dest('dist'));
-});
-
-gulp.task('serve', () => {
+//server para dev
+gulp.task('server:dev', () => {
     browserSync.init({
         server: {
             baseDir: 'dist'
         }
     });
 
-    gulp.watch('src', gulp.series('build:dev')).on('change', browserSync.reload);
+    gulp.watch('src/**/*.html', gulp.series('html:dev')).on('change', browserSync.reload);
+    gulp.watch('src/sass/**/*.scss', gulp.series('styles:dev')).on('change', browserSync.reload);
+    gulp.watch('src/scripts/**/*.ts', gulp.series('scripts:dev')).on('change', browserSync.reload);
+    gulp.watch('src/assets/**/*', gulp.series('build:dev')).on('change', browserSync.reload);
 });
 
 //builds
-gulp.task('build:dev', gulp.series('styles:dev', 'scripts:dev', 'assets', 'html:dev'));
+gulp.task('build:dev', gulp.series('html:dev','styles:dev', 'scripts:dev', 'assets','server:dev'));
 
-gulp.task('default', gulp.series('html','styles','assets','scripts'));
+gulp.task('default', gulp.series('html','styles','assets','scripts', (done) => {
+    browserSync.init({
+        server: {
+            baseDir: 'dist'
+        }
+    });
+    done();
+}));
