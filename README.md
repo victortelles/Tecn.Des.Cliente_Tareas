@@ -16,6 +16,10 @@
     ```bash
     npm run build
     ```
+    Si quieres vista de DEV
+    ```bash
+    npm run dev
+    ```
 
 ## Autor
 Victor Telles - 737066
