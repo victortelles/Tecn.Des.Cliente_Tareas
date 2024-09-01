@@ -36,6 +36,7 @@ h1, h2, h3, h4, p, ul{
     img {
         border-radius: 50%;
         border: 2px solid $color-acento;
+        object-fit: cover;
         width: 150px;
         height: 150px;
     }
@@ -117,6 +118,70 @@ h1, h2, h3, h4, p, ul{
         }
     }
 }
+
+//Apartado de media
+// Estilos para la sección Media
+.media-section {
+    margin-top: 20px;
+
+    h3 {
+        margin-bottom: 20px;
+        color: $color-acento;
+    }
+
+    .media-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+
+        .video-card {
+            grid-column: span 2;
+
+            video {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        ul {
+            color: gray;
+            text-align: left;
+            font-style: italic;
+            list-style: none;
+            font-size: smaller;
+            padding: 0;
+        }
+    }
+
+
+    .card {
+        background-color: #fff;
+        border: 1px solid $color-secundario;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: justify;
+        padding: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: $color-principal;
+            font-size: calc($size-fuente-base - 2px);
+        }
+    }
+}
+
 
 //Pie de pagina
 .footer {
