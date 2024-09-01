@@ -14,10 +14,10 @@ gulp.task('scripts', () => {
         .pipe(tsc({
             noImplicitAny: true,
             target: 'ES6',
-            isolatedModules: true
+            isolatedModules: true,
         }))
-        .pipe(remplace(/\sfrom '(\.\/[^']+)'/g," from 'persona.js'"))
-        .pipe(gulp.dest(dist/scripts))
+        .pipe(remplace(/\sfrom '(\.\/[^']+)'/g," from 'main.js'"))
+        .pipe(gulp.dest(dist/scripts));
 });
 
 gulp.task('scripts:dev', () => {
@@ -27,8 +27,8 @@ gulp.task('scripts:dev', () => {
             target: 'ES6',
             isolatedModules: true
         }))
-        .pipe(remplace(/\sfrom '(\.\/[^']+)'/g," from 'persona.js'"))
-        .pipe(gulp.dest(dist/scripts))
+        .pipe(remplace(/\sfrom '(\.\/[^']+)'/g," from 'main.js'"))
+        .pipe(gulp.dest(dist/scripts));
 });
 
 //styles
@@ -36,21 +36,22 @@ gulp.task('styles', () => {
     return gulp.src('src/sass/**/*.scss')
         .pipe(sass())
         .pipe(cleanCss())
-        .pipe(concat('styles.min.css'))
+        .pipe(concat('main.min.css'))
         .pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('styles:dev', () => {
     return gulp.src('src/sass/**/*.scss')
         .pipe(sass())
-        .pipe(concat('styles.css'))
+        .pipe(concat('main.css'))
         .pipe(gulp.dest('dist/styles'));
 });
 
 //assets
 gulp.task('assets', () => {
     return gulp.src('src/assets/**/*')
-        .pipe(copy('dist', { prefix: 2 }));
+        .pipe(copy('dist', { prefix: 1 }))
+        .pipe(gulp.dest('dist/assets'));
 });
 
 gulp.task('html:dev', () => {
@@ -60,7 +61,7 @@ gulp.task('html:dev', () => {
 
 gulp.task('html', () => {
     return gulp.src('src/*.html')
-        .pipe(replace('styles.css', 'styles.min.css'))
+        .pipe(replace('main.css', 'main.min.css'))
         .pipe(gulp.dest('dist'));
 });
 
@@ -77,4 +78,4 @@ gulp.task('serve', () => {
 //builds
 gulp.task('build:dev', gulp.series('styles:dev', 'scripts:dev', 'assets', 'html:dev'));
 
-gulp.task('default', gulp.series('styles', 'scripts', 'assets', 'html'));
+gulp.task('default', gulp.series('html','styles','assets','scripts'));
