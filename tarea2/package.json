@@ -5,9 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "script":"tsc",
-    "estilos:dev": "sass  --watch src/styles:dist/styles",
-    "estilos": "sass src/styles:dist/styles --no-source-map"
+    "script": "tsc",
+    "styles": "gulp styles",
+    "html": "gulp html",
+    "assets": "gulp assets",
+    "build": "gulp",
+    "script:dev": "tsc",
+    "styles:dev": "gulp styles:dev",
+    "assets:dev": "gulp assets",
+    "build:dev": "gulp build:dev && gulp assets:dev && styles:dev && script:dev",
+    "dev": "gulp build:dev && gulp serve"
   },
   "keywords": [],
   "author": "Victor Telles - 737066",
@@ -20,6 +27,7 @@
     "gulp-copy": "^4.0.1",
     "gulp-replace": "^1.1.4",
     "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "sass": "^1.77.8",
     "typescript": "^5.5.4"
   }
