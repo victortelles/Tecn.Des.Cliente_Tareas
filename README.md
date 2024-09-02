@@ -21,6 +21,10 @@
     npm run build:dev
     ```
 
+### JSON
+- Los cambios a realizar en el JSON es unicamente en la parte de los *Habilidades, tecnologias y hobbies*
+- Por el momento no se ha implementado el JSON para cambiar la cuenta de correo a la que se le envia en el formulario.
+
 ## Autor
 Victor Telles - 737066
 
