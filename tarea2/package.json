@@ -1,0 +1,37 @@
+{
+  "name": "tarea2-aplicacion-linea",
+  "version": "1.0.0",
+  "description": "Tarea2 Aplicacion de CV en linea conm Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "script": "gulp scripts",
+    "styles": "gulp styles",
+    "html": "gulp html",
+    "assets": "gulp assets",
+    "build": "gulp",
+    "script:dev": "gulp scripts:dev",
+    "styles:dev": "gulp styles:dev",
+    "html:dev": "gulp html:dev",
+    "assets:dev": "gulp assets",
+    "build:dev": "gulp build:dev",
+    "dev": "gulp server:dev"
+  },
+  "keywords": [],
+  "author": "Victor Telles - 737066",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.5.2",
+    "browser-sync": "^3.0.2",
+    "cpx": "^1.5.0",
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-copy": "^4.0.1",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "sass": "^1.77.8",
+    "typescript": "^5.5.4"
+  }
+}

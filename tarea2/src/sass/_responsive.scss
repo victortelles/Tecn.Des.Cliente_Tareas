@@ -1,0 +1,106 @@
+//Responsivo tablet
+@include breakpoint(tablet) {
+    .info-container {
+        flex-direction: row;
+        text-align: start;
+    }
+    .info-item {
+        margin-bottom: 20px;
+    }
+
+    .profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .list-tech-hobb-skills ul {
+        li {
+            flex: 1 1 calc(33.33% - 20px);
+        }
+    }
+
+    .contact-info ul {
+        li {
+            font-size: calc($size-fuente-base + 1px);
+        }
+    }
+
+    .media-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        //video
+        .video-card {
+            grid-column: span 3;
+        }
+    }
+
+    //Contact
+    .contact-section {
+        padding: 15px;
+        .contact-form {
+            .form-group {
+                input[type="text"],
+                input[type="email"],
+                textarea {
+                    font-size: calc($size-fuente-base - 1px);
+                }
+            }
+            .submit-button {
+                font-size: calc($size-fuente-base - 1px);
+            }
+        }
+    }
+
+}
+
+//responsivo movil
+@include breakpoint(movil) {
+    .info-container {
+        flex-direction: column;
+        text-align: start;
+    }
+    .info-item {
+        margin-bottom: 20px;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+    }
+
+    .list-tech-hobb-skills ul {
+        li {
+            flex: 1 1 calc(33.33% - 20px);
+        }
+    }
+
+    .media-cards {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+        //video
+        .video-card {
+            grid-column: span 3;
+        }
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .contact-section {
+        padding: 10px;
+        .contact-form {
+            .form-group {
+                input[type="text"],
+                input[type="email"],
+                textarea {
+                    font-size: calc($size-fuente-base - 2px);
+                }
+            }
+            .submit-button {
+                font-size: calc($size-fuente-base - 2px);
+            }
+        }
+    }
+
+}

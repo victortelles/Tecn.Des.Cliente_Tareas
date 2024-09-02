@@ -1,0 +1,271 @@
+//Estilos HTML
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: $size-fuente-base;
+    line-height: $altura-linea-base;
+    background-color: $color-fondo-principal;
+    color: $color-principal;
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    max-width: $ancho-maximo;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.1);
+}
+
+//Encabezados
+h1, h2, h3, h4, p, ul{
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+
+//header
+.header {
+    align-items: center;
+}
+
+//Perfil
+.profile {
+    @include flex-center;
+    justify-content: start;
+    gap: 20px;
+    img {
+        border-radius: 50%;
+        border: 2px solid $color-acento;
+        object-fit: cover;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+//Datos generales
+.general-info ul {
+    list-style: none;
+    padding: 0;
+    li {
+        margin-bottom: 4px;
+    }
+}
+
+//Informacion contacto
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+        margin-bottom: 4px;
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+// Contenedor de info
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.info-item {
+    flex: 1;
+}
+
+//Exp laboral
+.experience .job {
+    margin-bottom: 20px;
+}
+
+/*
+//Habilidades
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+
+    li {
+        background-color: $color-acento;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+    }
+}
+*/
+
+// Lista de tecnologías, habilidades y pasatiempos
+.list-tech-hobb-skills {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
+    gap: 20px;
+
+    li {
+        width: 100%;
+        padding: 10px;
+        font-size: $size-fuente-base;
+        cursor: pointer;
+
+        background-color: $color-acento;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        flex: 1 1 calc(25% - 20px);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+
+        &:hover {
+            background-color: $color-secundario;
+            transform: scale(1.05); // Efecto de zoom in
+        }
+    }
+}
+
+
+//Apartado de media
+// Estilos para la sección Media
+.media-section {
+    margin-top: 20px;
+
+    h3 {
+        margin-bottom: 20px;
+        color: $color-acento;
+    }
+
+    .media-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+
+        .video-card {
+            grid-column: span 2;
+
+            video {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        ul {
+            color: gray;
+            text-align: left;
+            font-style: italic;
+            list-style: none;
+            font-size: smaller;
+            padding: 0;
+        }
+    }
+
+
+    .card {
+        background-color: #fff;
+        border: 1px solid $color-secundario;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: justify;
+        padding: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: $color-principal;
+            font-size: calc($size-fuente-base - 2px);
+        }
+    }
+}
+
+// Estilos para la sección del formulario de contacto
+.contact-section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border: 1px solid $color-secundario;
+    border-radius: 8px;
+    background-color: #fff;
+
+    h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: $color-acento;
+    }
+
+    // Contactame
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+
+            label {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                font-size: $size-fuente-base;
+                line-height: $altura-linea-base;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+                    transform: scale(1.02); // Efecto de zoom in al enfocar
+                }
+
+                &:focus:not(:hover) {
+                    transform: scale(1); // Efecto de zoom out al perder el enfoque
+                }
+            }
+
+            textarea {
+                resize: vertical;
+            }
+        }
+
+        .submit-button {
+            @include button-style($color-acento, #fff);
+            width: 100%;
+            padding: 10px;
+            font-size: $size-fuente-base;
+            cursor: pointer;
+        }
+    }
+}
+
+
+//Pie de pagina
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: calc($size-fuente-base - 2px);
+    color: $color-secundario;
+}
