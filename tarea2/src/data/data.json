@@ -1,0 +1,80 @@
+{
+    "technologies": [
+        {
+            "icon": "fa-html5",
+            "name": "HTML"
+        },
+        {
+            "icon": "fa-css3-alt",
+            "name": "CSS"
+        },
+        {
+            "icon": "fa-js",
+            "name": "JavaScript"
+        },
+        {
+            "icon": "fa-react",
+            "name": "React"
+        },
+        {
+            "icon": "fa-node-js",
+            "name": "Node.js"
+        },
+        {
+            "icon": "fa-python",
+            "name": "Python"
+        },
+        {
+            "icon": "fa-git-alt",
+            "name": "Git"
+        },
+        {
+            "icon": "fa-github",
+            "name": "GitHub"
+        }
+    ],
+    "skills": [
+        {
+            "icon": "fa-laptop-code",
+            "name": "Desarrollo Frontend"
+        },
+        {
+            "icon": "fa-code",
+            "name": "Desarrollo Backend"
+        },
+        {
+            "icon": "fa-database",
+            "name": "Base de datos"
+        },
+        {
+            "icon": "fa-display",
+            "name": "Diseño Responsivo"
+        },
+        {
+            "icon": "fa-paintbrush",
+            "name": "Diseño UI/UX"
+        },
+        {
+            "icon": "fa-code-branch",
+            "name": "Manejamiento GitHub"
+        }
+    ],
+    "hobbies": [
+        {
+            "icon": "fa-computer",
+            "name": "Jugar Videojuegos con mis amigos"
+        },
+        {
+            "icon": "fa-basketball",
+            "name": "Jugar Basketball"
+        },
+        {
+            "icon": "fa-film",
+            "name": "Ver Series, Películas, Anime"
+        },
+        {
+            "icon": "fa-headphones",
+            "name": "Escuchar Música"
+        }
+    ]
+}
