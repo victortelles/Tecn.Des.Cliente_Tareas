@@ -197,7 +197,7 @@ h1, h2, h3, h4, p, ul{
         color: $color-acento;
     }
 
-    //Contactame
+    // Contactame
     .contact-form {
         display: flex;
         flex-direction: column;
@@ -223,6 +223,21 @@ h1, h2, h3, h4, p, ul{
                 box-sizing: border-box;
                 font-size: $size-fuente-base;
                 line-height: $altura-linea-base;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+                    transform: scale(1.02); // Efecto de zoom in al enfocar
+                }
+
+                &:focus:not(:hover) {
+                    transform: scale(1); // Efecto de zoom out al perder el enfoque
+                }
             }
 
             textarea {
@@ -239,7 +254,6 @@ h1, h2, h3, h4, p, ul{
         }
     }
 }
-
 
 
 //Pie de pagina
