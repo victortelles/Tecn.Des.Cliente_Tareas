@@ -182,6 +182,65 @@ h1, h2, h3, h4, p, ul{
     }
 }
 
+// Estilos para la sección del formulario de contacto
+.contact-section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border: 1px solid $color-secundario;
+    border-radius: 8px;
+    background-color: #fff;
+
+    h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: $color-acento;
+    }
+
+    //Contactame
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+
+            label {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                font-size: $size-fuente-base;
+                line-height: $altura-linea-base;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+        }
+
+        .submit-button {
+            @include button-style($color-acento, #fff);
+            width: 100%;
+            padding: 10px;
+            font-size: $size-fuente-base;
+            cursor: pointer;
+        }
+    }
+}
+
+
 
 //Pie de pagina
 .footer {

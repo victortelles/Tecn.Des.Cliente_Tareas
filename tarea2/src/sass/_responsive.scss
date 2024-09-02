@@ -32,6 +32,24 @@
             grid-column: span 3;
         }
     }
+
+    //Contact
+    .contact-section {
+        padding: 15px;
+        .contact-form {
+            .form-group {
+                input[type="text"],
+                input[type="email"],
+                textarea {
+                    font-size: calc($size-fuente-base - 1px);
+                }
+            }
+            .submit-button {
+                font-size: calc($size-fuente-base - 1px);
+            }
+        }
+    }
+
 }
 
 //responsivo movil
@@ -68,4 +86,21 @@
     main {
         padding: 10px;
     }
+
+    .contact-section {
+        padding: 10px;
+        .contact-form {
+            .form-group {
+                input[type="text"],
+                input[type="email"],
+                textarea {
+                    font-size: calc($size-fuente-base - 2px);
+                }
+            }
+            .submit-button {
+                font-size: calc($size-fuente-base - 2px);
+            }
+        }
+    }
+
 }
