@@ -16,29 +16,35 @@ const { exec } = require('child_process');
 gulp.task('scripts', () => {
     return gulp.src('src/scripts/**/*.ts')
         .pipe(tsc({
-            noImplicitAny: true,
-            moduleResolution: 'node',
             target: 'ES6',
-            isolatedModules: true,
+            module: 'ES6',
+            moduleResolution: 'node',
+            resolveJsonModule: true,
             esModuleInterop: true,
-            strict: true
+            noImplicitAny: true,
+            isolatedModules: true,
+            strict: true,
+            skipLibCheck: true
         }))
-        .pipe(replace(/\sfrom '(\.\/[^']+)'/g," from 'index.js'"))
-        .pipe(gulp.dest("dist/scripts"));
+        .pipe(replace(/\sfrom '(\.\/[^']+)'/g, " from 'index.js'"))
+        .pipe(gulp.dest('dist/scripts'));
 });
 
 gulp.task('scripts:dev', () => {
     return gulp.src('src/scripts/**/*.ts')
         .pipe(tsc({
-            noImplicitAny: true,
-            moduleResolution: "node",
             target: 'ES6',
-            isolatedModules: true,
+            module: 'ES6',
+            moduleResolution: 'node',
+            resolveJsonModule: true,
             esModuleInterop: true,
-            strict: true
+            noImplicitAny: true,
+            isolatedModules: true,
+            strict: true,
+            skipLibCheck: true
         }))
-        .pipe(replace(/\sfrom '(\.\/[^']+)'/g," from 'index.js'"))
-        .pipe(gulp.dest("dist/scripts"));
+        .pipe(replace(/\sfrom '(\.\/[^']+)'/g, " from 'index.js'"))
+        .pipe(gulp.dest('dist/scripts'));
 });
 
 //styles
@@ -73,6 +79,13 @@ gulp.task('assets', (done) => {
         //.pipe(gulp.dest('dist/assets'));
 });
 
+//data
+gulp.task('data', () => {
+    return gulp.src('src/data/*.json')
+        .pipe(gulp.dest('dist/data'));
+});
+
+
 //HTML
 gulp.task('html', () => {
     return gulp.src('src/*.html')
@@ -98,12 +111,13 @@ gulp.task('server:dev', () => {
     gulp.watch('src/sass/**/*.scss', gulp.series('styles:dev')).on('change', browserSync.reload);
     gulp.watch('src/scripts/**/*.ts', gulp.series('scripts:dev')).on('change', browserSync.reload);
     gulp.watch('src/assets/**/*', gulp.series('build:dev')).on('change', browserSync.reload);
+    gulp.watch('src/data/*.json', gulp.series('data')).on('change', browserSync.reload);
 });
 
 //builds
-gulp.task('build:dev', gulp.series('html:dev','styles:dev', 'scripts:dev', 'assets','server:dev'));
+gulp.task('build:dev', gulp.series('html:dev','styles:dev', 'scripts:dev', 'assets', 'data' ,'server:dev'));
 
-gulp.task('default', gulp.series('html','styles','assets','scripts', (done) => {
+gulp.task('default', gulp.series('html','styles','assets','scripts', 'data', (done) => {
     browserSync.init({
         server: {
             baseDir: 'dist'

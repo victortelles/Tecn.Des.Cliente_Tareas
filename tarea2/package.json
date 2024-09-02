@@ -33,8 +33,5 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "sass": "^1.77.8",
     "typescript": "^5.5.4"
-  },
-  "dependencies": {
-    "emailjs-com": "^3.2.0"
   }
 }

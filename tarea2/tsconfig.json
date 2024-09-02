@@ -4,6 +4,13 @@
     "compilerOptions": {      //Compilador JS
         "outDir":"dist/scripts",    //Carpeta destino
         "noImplicitAny": true,
-        "target":"ES6"              //Version de JavaScript
+        "target":"ES6",              //Version de JavaScript
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "strict": true
     }
 }
