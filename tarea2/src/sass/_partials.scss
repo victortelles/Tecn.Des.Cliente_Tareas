@@ -103,10 +103,15 @@ h1, h2, h3, h4, p, ul{
     flex-wrap: wrap;
     padding-left: 10px;
     gap: 20px;
+
     li {
+        width: 100%;
+        padding: 10px;
+        font-size: $size-fuente-base;
+        cursor: pointer;
+
         background-color: $color-acento;
         color: #fff;
-        padding: 10px;
         text-align: center;
         border-radius: 5px;
         flex: 1 1 calc(25% - 20px);
@@ -118,6 +123,7 @@ h1, h2, h3, h4, p, ul{
         }
     }
 }
+
 
 //Apartado de media
 // Estilos para la sección Media
