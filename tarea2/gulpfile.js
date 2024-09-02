@@ -17,8 +17,11 @@ gulp.task('scripts', () => {
     return gulp.src('src/scripts/**/*.ts')
         .pipe(tsc({
             noImplicitAny: true,
+            moduleResolution: 'node',
             target: 'ES6',
             isolatedModules: true,
+            esModuleInterop: true,
+            strict: true
         }))
         .pipe(replace(/\sfrom '(\.\/[^']+)'/g," from 'index.js'"))
         .pipe(gulp.dest("dist/scripts"));
@@ -28,8 +31,11 @@ gulp.task('scripts:dev', () => {
     return gulp.src('src/scripts/**/*.ts')
         .pipe(tsc({
             noImplicitAny: true,
+            moduleResolution: "node",
             target: 'ES6',
-            isolatedModules: true
+            isolatedModules: true,
+            esModuleInterop: true,
+            strict: true
         }))
         .pipe(replace(/\sfrom '(\.\/[^']+)'/g," from 'index.js'"))
         .pipe(gulp.dest("dist/scripts"));

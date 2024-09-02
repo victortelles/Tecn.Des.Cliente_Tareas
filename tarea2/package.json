@@ -21,6 +21,7 @@
   "author": "Victor Telles - 737066",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^22.5.2",
     "browser-sync": "^3.0.2",
     "cpx": "^1.5.0",
     "gulp": "^5.0.0",
