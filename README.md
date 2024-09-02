@@ -18,7 +18,7 @@
     ```
     Si quieres vista de DEV
     ```bash
-    npm run dev
+    npm run build:dev
     ```
 
 ## Autor
