@@ -1,8 +1,11 @@
-<main>
-  <app-card></app-card>
-  <app-game-board></app-game-board>
-  <app-root></app-root>
-  <app-score></app-score>
-  <app-timer></app-timer>
-  <h1>Memorama</h1>
-</main>
+<div class="container">
+    <header>
+        <h1>{{ title }}</h1>
+        <app-score></app-score>
+        <app-timer></app-timer>
+    </header>
+
+    <main>
+        <app-game-board></app-game-board>
+    </main>
+</div>
