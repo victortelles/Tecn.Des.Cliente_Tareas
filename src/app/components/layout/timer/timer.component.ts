@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './timer.component.scss'
 })
 export class TimerComponent {
+time: string = '00:00';
 
 }
