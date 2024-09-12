@@ -5,9 +5,9 @@
     align-items: center;
     font-size: 1.5rem;
     border-radius: 10px;
+    height: 100px;
+    cursor: pointer;
     transition: transform 0.2s;
-    height: 100px; /* Ajusta la altura de las cartas */
-    width: 100px;  /* Ajusta el ancho de las cartas */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 
     &:hover {
