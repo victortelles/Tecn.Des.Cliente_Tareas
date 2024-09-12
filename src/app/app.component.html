@@ -1,11 +1,14 @@
-<div class="container">
-    <header>
-        <h1>{{ title }}</h1>
-        <app-score></app-score>
-        <app-timer></app-timer>
+<div class="game-container">
+    <header class="game-header">
+        <h1>Memorama</h1>
     </header>
 
-    <main>
+    <section class="game-info">
+        <app-score></app-score>
+        <app-timer></app-timer>
+    </section>
+
+    <section class="game-board">
         <app-game-board></app-game-board>
-    </main>
+    </section>
 </div>
