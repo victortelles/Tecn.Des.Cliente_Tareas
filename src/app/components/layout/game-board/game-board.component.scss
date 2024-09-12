@@ -1,7 +1,9 @@
-.game-board {
-    display: flex;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+.game-board-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-gap: 10px;
+
     padding: 10px;
     height: calc(100vh - 150px);
     overflow: auto;
