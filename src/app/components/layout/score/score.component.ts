@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './score.component.scss'
 })
 export class ScoreComponent {
+score: number = 0;
 
 }
