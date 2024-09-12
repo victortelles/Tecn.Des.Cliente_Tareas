@@ -4,6 +4,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GameService {
+  private moves = 0;
+  private matches = 0;
 
-  constructor() { }
+  incrementMoves(): void {
+    this.moves++;
+  }
+
+  incrementMatches(): void {
+    this.matches++;
+  }
+
+  getMoves(): number {
+    return this.moves;
+  }
+
+  getMatches(): number {
+    return this.matches;
+  }
 }
