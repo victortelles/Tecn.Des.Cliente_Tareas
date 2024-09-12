@@ -1,3 +1,5 @@
-<div class="game-board">
-    <app-card *ngFor="let card of cards"></app-card>
-</div>
+<section class="game-board">
+    <article *ngFor="let card of cards" class="card">
+        {{ card }}
+    </article>
+</section>
