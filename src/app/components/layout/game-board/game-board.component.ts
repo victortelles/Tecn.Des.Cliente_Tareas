@@ -10,5 +10,26 @@ import { CommonModule } from '@angular/common';
   styleUrl: './game-board.component.scss'
 })
 export class GameBoardComponent {
-  cards = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+  cards = [
+    {content: 'Card 1'},
+    {content: 'Card 2'},
+    {content: 'Card 3'},
+    {content: 'Card 4'},
+    {content: 'Card 5'},
+    {content: 'Card 6'},
+    {content: 'Card 7'},
+    {content: 'Card 8'},
+    {content: 'Card 9'},
+    {content: 'Card 10'},
+    {content: 'Card 11'},
+    {content: 'Card 12'},
+    {content: 'Card 13'},
+    {content: 'Card 14'},
+    {content: 'Card 15'},
+    {content: 'Card 16'},
+    {content: 'Card 17'},
+    {content: 'Card 18'},
+    {content: 'Card 19'},
+    {content: 'Card 20'},
+  ]
 }
