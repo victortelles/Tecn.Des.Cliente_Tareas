@@ -13,6 +13,7 @@ html, body {
     gap: 8px;
     flex-grow: 1;
     padding: 4px;
+    font-family: Arial, Helvetica, sans-serif;
 
     @media (max-width: 768px) {
         grid-template-columns: repeat(3, 1fr);
