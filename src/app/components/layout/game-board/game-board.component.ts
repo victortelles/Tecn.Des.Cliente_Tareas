@@ -7,9 +7,26 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CardComponent, CommonModule],
   templateUrl: './game-board.component.html',
-  styleUrl: './game-board.component.scss'
+  styleUrls: ['./game-board.component.scss']
 })
 export class GameBoardComponent {
-  //Arreglo de 20 cartas
-  cards = Array.from({ length: 20 }, (_, i) => ({ id: i, content: `Card ${i + 1}` }));
+  cards: {id: number, content: string } [] = [];
+
+    constructor () {
+      this.generateCards();
+    }
+
+    generateCards() {
+      //Funcion para los la creacion de los pares.
+      const contents = ['1','2','3','4','5','6','7','8','9','10'];
+
+      //Duplicar el arreglo para hacer los pares
+      const pairedCards = [...contents, ...contents];
+
+    // Asignar un ID único a cada carta y mezclar el arreglo aleatoriamente
+    this.cards = pairedCards.map((content, index) => ({
+      id: index,
+      content: content
+    })).sort(() => Math.random() - 0.5);
+  }
 }
