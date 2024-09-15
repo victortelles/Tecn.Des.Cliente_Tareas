@@ -1,3 +1,7 @@
 <section class="game-board-container">
-    <app-card *ngFor="let card of cards" [card]="card"[flipCardHandler]="flipCardHandler.bind(this, card.id)"></app-card>
+    <app-card
+        *ngFor="let card of cards; let i = index"
+        [card]="card"
+        (click)="flipCardHandler(i)">
+    </app-card>
 </section>
