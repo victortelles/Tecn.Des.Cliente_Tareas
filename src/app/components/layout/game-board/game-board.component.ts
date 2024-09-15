@@ -25,7 +25,7 @@ export class GameBoardComponent {
     //Duplicar el arreglo para hacer los pares
     const pairedCards = [...contents, ...contents];
 
-    // Asignar un ID único a cada carta y mezclar el arreglo aleatoriamente
+    // inicializar las cartas con su contenido y un ID.
     this.cards = pairedCards.map((content, index) => ({
       id: index,
       content: content,
@@ -35,16 +35,16 @@ export class GameBoardComponent {
   }
 
   //Funcion para voltear la carta
-  flipCardHandler(cardId: number) {
-    const card = this.cards[cardId];
+  flipCardHandler(index: number) {
+    const card = this.cards[index];
 
     //No permitir el volteo si ya hay 2 cartas volteados
-    if (this.flippedCardIndices.length < 2 && !card.isFlipped) {
+    if (this.flippedCardIndices.length < 2 && !card.isFlipped && !card.isMatched) {
       card.isFlipped = true;
-      this.flippedCardIndices.push(cardId);
+      this.flippedCardIndices.push(index);
     }
 
-    //Si se han volteado 2 carta, validar si son iguales
+    //Si se han volteado 2 cartas, establecer tiempo para validar
     if (this.flippedCardIndices.length === 2) {
       setTimeout(() => this.checkForMatch(), 1000);
     }
@@ -67,11 +67,11 @@ export class GameBoardComponent {
     }
 
     if (firstCard.content === secondCard.content) {
-      // Si coinciden, marcar como 'emparejadas'
+      // Si coinciden, marcar como 'Matched'
       firstCard.isMatched = true;
       secondCard.isMatched = true;
     } else {
-      // Si no coinciden, voltear las cartas
+      // Si no coinciden, voltear de nuevo las cartas
       firstCard.isFlipped = false;
       secondCard.isFlipped = false;
     }
