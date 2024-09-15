@@ -70,6 +70,8 @@ export class GameBoardComponent {
       // Si coinciden, marcar como 'Matched'
       firstCard.isMatched = true;
       secondCard.isMatched = true;
+      //test
+      console.log('Cartas coinciden: ', firstCard, secondCard);
     } else {
       // Si no coinciden, voltear de nuevo las cartas
       firstCard.isFlipped = false;

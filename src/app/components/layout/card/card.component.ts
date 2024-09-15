@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -11,10 +11,9 @@ import { Component, Input } from '@angular/core';
 export class CardComponent {
   @Input() card: { id: number, content: string, isFlipped: boolean, isMatched: boolean } = { id: 0, content: '', isFlipped: false, isMatched: false };
   @Input() flipCardHandler!: (cardId: number) => void;
+  @Output() cardFlipped = new EventEmitter<number>();
 
   flipCard() {
-    if(!this.card.isFlipped && !this.card.isMatched){
-      this.flipCardHandler(this.card.id);
-    }
+    this.cardFlipped.emit(this.card.id);
   }
 }
