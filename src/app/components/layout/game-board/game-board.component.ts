@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class GameBoardComponent {
   cards: { id: number, content: string, isFlipped: boolean, isMatched: boolean }[] = [];
   flippedCardIndices: number[] = [];
+  @Output() movesChanged = new EventEmitter<number>();
 
   constructor() {
     this.generateCards();
@@ -42,6 +43,7 @@ export class GameBoardComponent {
     if (this.flippedCardIndices.length < 2 && !card.isFlipped && !card.isMatched) {
       card.isFlipped = true;
       this.flippedCardIndices.push(index);
+      this.movesChanged.emit(Math.ceil(this.flippedCardIndices.length / 2));
     }
 
     //Si se han volteado 2 cartas, establecer tiempo para validar
