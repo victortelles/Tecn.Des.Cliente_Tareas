@@ -13,7 +13,6 @@ import { CommonModule } from '@angular/common';
 export class GameBoardComponent {
   cards: { id: number, content: string, isFlipped: boolean, isMatched: boolean }[] = [];
   flippedCardIndices: number[] = [];
-  isProcessing: boolean = false;
 
   constructor() {
     this.generateCards();
@@ -36,14 +35,16 @@ export class GameBoardComponent {
   }
 
   //Funcion para voltear la carta
-  flipCardHandler(index: number) {
-    const card = this.cards[index];
+  flipCardHandler(cardId: number) {
+    const card = this.cards[cardId];
 
-    if (card.isFlipped || this.flippedCardIndices.length === 2) return;
+    //No permitir el volteo si ya hay 2 cartas volteados
+    if(this.flippedCardIndices.length < 2 && !card.isFlipped) {
+      card.isFlipped = true;
+      this.flippedCardIndices.push(cardId);
+    }
 
-    card.isFlipped = true;
-    this.flippedCardIndices.push(index);
-
+    //Si se han volteado 2 carta, validar si son iguales
     if (this.flippedCardIndices.length === 2) {
       setTimeout(() => this.checkForMatch(), 1000);
     }
@@ -54,7 +55,12 @@ export class GameBoardComponent {
     const firstCard = this.cards[firstIndex];
     const secondCard = this.cards[secondIndex];
 
-    if (firstCard.content !== secondCard.content) {
+    if (firstCard.content === secondCard.content) {
+      //si coinciden, marcar match
+      firstCard.isFlipped = false;
+      secondCard.isFlipped = false;
+    } else {
+      //si no coinciden, voltear las cartas
       firstCard.isFlipped = false;
       secondCard.isFlipped = false;
     }
