@@ -41,26 +41,25 @@ export class AppComponent {
 
   //Timer
   startTimer() {
-    if (this.timerComponent) {
-      this.timerComponent.startTimer();
-    }
+    this.timerComponent.startTimer();
   }
 
   stopTimer() {
-    if (this.timerComponent) {
-      this.timerComponent.stopTimer();
-    }
+    this.timerComponent.stopTimer();
   }
 
   //GameOver
   onGameFinished(){
-    this.stopTimer();
     this.gameOver = true;
   }
 
   //start game
   startNewGame() {
     location.reload();
+  }
+
+  onTimeStopped(finalTime: string) {
+    this.time = finalTime;
   }
 
   //Reset

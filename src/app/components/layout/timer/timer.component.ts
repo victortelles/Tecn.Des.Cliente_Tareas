@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -12,6 +12,8 @@ export class TimerComponent {
   time: string = '00:00';
   private timer: any;
   private seconds: number = 0;
+
+  @Output() timeStopped = new EventEmitter<string>();
 
   ngOnInit() {
     //inicializar tiempo
@@ -43,6 +45,8 @@ export class TimerComponent {
     if (this.timer) {
       clearInterval(this.timer);
     }
+    //emitir evento
+    this.timeStopped.emit(this.time);
   }
 
   private updateDisplay() {

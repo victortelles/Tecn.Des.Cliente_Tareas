@@ -6,7 +6,7 @@
     <section class="game-info" *ngIf="!gameOver">
         <app-attempts [attempts]="moves"></app-attempts>
         <app-score [score]="score"></app-score>
-        <app-timer></app-timer>
+        <app-timer (timeStopped)="onTimeStopped($event)"></app-timer>
     </section>
 
     <section class="game-board">
