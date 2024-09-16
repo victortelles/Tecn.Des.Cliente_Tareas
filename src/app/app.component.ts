@@ -4,11 +4,13 @@ import { ScoreComponent } from './components/layout/score/score.component';
 import { TimerComponent } from './components/layout/timer/timer.component';
 import { GameBoardComponent } from './components/layout/game-board/game-board.component';
 import { AttemptsComponent } from './components/layout/attempts/attempts.component';
+import { GameOverComponent } from './components/layout/game-over/game-over.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ScoreComponent, GameBoardComponent, TimerComponent, AttemptsComponent],
+  imports: [RouterOutlet, CommonModule, ScoreComponent, GameBoardComponent, TimerComponent, AttemptsComponent, GameOverComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -17,6 +19,8 @@ export class AppComponent {
   moves: number = 0;
   matches = 0;
   score: number = 0;
+  time: string = '';
+  gameOver: boolean = false;
 
   @ViewChild(TimerComponent) timerComponent!: TimerComponent;
 
@@ -48,4 +52,25 @@ export class AppComponent {
     }
   }
 
+  //GameOver
+  onGameFinished(){
+    this.stopTimer();
+    this.gameOver = true;
+  }
+
+  //start game
+  startNewGame() {
+    location.reload();
+  }
+
+  //Reset
+  resetGame() {
+    this.moves = 0;
+    this.score = 0;
+    this.time = '';
+    if (this.timerComponent){
+      this.timerComponent.stopTimer();
+      this.timerComponent.startTimer();
+    }
+  }
 }

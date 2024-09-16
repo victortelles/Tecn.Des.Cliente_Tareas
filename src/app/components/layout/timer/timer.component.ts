@@ -54,5 +54,4 @@ export class TimerComponent {
   private pad(value: number) {
     return value < 10 ? `0${value}` : value.toString();
   }
-
 }

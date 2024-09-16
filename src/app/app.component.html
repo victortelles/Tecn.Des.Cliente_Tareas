@@ -3,7 +3,7 @@
         <h1>Memorama</h1>
     </header>
 
-    <section class="game-info">
+    <section class="game-info" *ngIf="!gameOver">
         <app-attempts [attempts]="moves"></app-attempts>
         <app-score [score]="score"></app-score>
         <app-timer></app-timer>
@@ -14,7 +14,16 @@
             (movesChanged)="onMovesChanged($event)"
             (scoreChanged)="onScoreChanged($event)"
             (timerStarted)="startTimer()"
-            (timerStopped)="stopTimer()">
+            (timerStopped)="stopTimer()"
+            (gameFinished)="onGameFinished()">
         </app-game-board>
     </section>
+
+    <app-game-over
+        *ngIf="gameOver"
+        [moves]="moves"
+        [score]="score"
+        [time]="time"
+        (startNewGame)="startNewGame()">
+    </app-game-over>
 </div>

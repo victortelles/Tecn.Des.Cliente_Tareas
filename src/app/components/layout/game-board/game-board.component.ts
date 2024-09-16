@@ -19,6 +19,8 @@ export class GameBoardComponent {
   @Output() movesChanged = new EventEmitter<number>();
   // Score
   @Output() scoreChanged = new EventEmitter<number>();
+  //Game-over
+  @Output() gameFinished = new EventEmitter<void>();
   //Timer
   @Output() timerStarted = new EventEmitter<void>();
   @Output() timerStopped = new EventEmitter<void>();
@@ -101,5 +103,11 @@ export class GameBoardComponent {
       this.consecutiveMatches = 0;
     }
     this.flippedCardIndices = [];
+
+    const allMatched = this.cards.every(card => card.isMatched);
+    if (allMatched) {
+      this.timerStopped.emit();
+      this.gameFinished.emit();
+    }
   }
 }
