@@ -6,6 +6,7 @@ import { GameBoardComponent } from './components/layout/game-board/game-board.co
 import { AttemptsComponent } from './components/layout/attempts/attempts.component';
 import { GameOverComponent } from './components/layout/game-over/game-over.component';
 import { CommonModule } from '@angular/common';
+import { ConfettiService } from './components/effects/confetti.service';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,9 @@ export class AppComponent {
   gameOver: boolean = false;
 
   @ViewChild(TimerComponent) timerComponent!: TimerComponent;
+
+  //confetti
+  constructor(private confettiService: ConfettiService) {}
 
   // Numero de intentos
   onMovesChanged(movesCount: number) {
@@ -51,6 +55,7 @@ export class AppComponent {
   //GameOver
   onGameFinished(){
     this.gameOver = true;
+    this.confettiService.celebrate();
   }
 
   //start game

@@ -20,7 +20,7 @@ export class TimerComponent {
     this.updateDisplay();
   }
 
-  ngOnDestoy() {
+  ngOnDestroy() {
     //detener el timer
     if (this.timer) {
       clearInterval(this.timer);
