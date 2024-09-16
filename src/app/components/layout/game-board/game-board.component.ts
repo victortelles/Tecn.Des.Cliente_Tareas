@@ -43,12 +43,15 @@ export class GameBoardComponent {
     if (this.flippedCardIndices.length < 2 && !card.isFlipped && !card.isMatched) {
       card.isFlipped = true;
       this.flippedCardIndices.push(index);
-      this.movesChanged.emit(Math.ceil(this.flippedCardIndices.length / 2));
     }
 
     //Si se han volteado 2 cartas, establecer tiempo para validar
     if (this.flippedCardIndices.length === 2) {
-      setTimeout(() => this.checkForMatch(), 1000);
+      setTimeout(() => {
+        this.checkForMatch()
+        //Conteo de intentos
+        this.movesChanged.emit(1);
+      }, 1000);
     }
   }
 
@@ -56,17 +59,9 @@ export class GameBoardComponent {
     if (this.flippedCardIndices.length < 2) return;
 
     const [firstIndex, secondIndex] = this.flippedCardIndices;
-
     // Verificar si ambos índices son válidos
     const firstCard = this.cards[firstIndex];
     const secondCard = this.cards[secondIndex];
-
-    if (!firstCard || !secondCard) {
-      // Manejar si alguna carta es undefined
-      console.error('Una de las cartas seleccionadas no existe.');
-      this.flippedCardIndices = [];
-      return;
-    }
 
     if (firstCard.content === secondCard.content) {
       // Si coinciden, marcar como 'Matched'
@@ -79,7 +74,6 @@ export class GameBoardComponent {
       firstCard.isFlipped = false;
       secondCard.isFlipped = false;
     }
-
     this.flippedCardIndices = [];
   }
 }

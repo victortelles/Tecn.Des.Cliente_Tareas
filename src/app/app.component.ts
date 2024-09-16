@@ -14,11 +14,11 @@ import { AttemptsComponent } from './components/layout/attempts/attempts.compone
 })
 export class AppComponent {
   title = 'memorama';
-  moves = 0;
+  moves: number = 0;
   matches = 0;
 
-  onMovesChanged(moves: number): void {
-    this.moves = moves;
+  onMovesChanged(movesCount: number) {
+    this.moves += movesCount;
   }
 
   onMatchesChanged(matches: number): void {
