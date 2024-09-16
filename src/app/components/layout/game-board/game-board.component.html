@@ -1,0 +1,7 @@
+<section class="game-board-container">
+    <app-card
+        *ngFor="let card of cards; let i = index"
+        [card]="card"
+        (click)="flipCardHandler(i)">
+    </app-card>
+</section>

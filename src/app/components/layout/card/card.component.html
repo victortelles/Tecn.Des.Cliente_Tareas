@@ -1,0 +1,6 @@
+<section class="card" [ngClass]="{ flipped: card.isFlipped, 'matched': card.isMatched }" (click)="flipCard()">
+    <section class="card-inner">
+        <section class="card-front"></section>
+        <section class="card-back">{{ card.content }}</section>
+    </section>
+</section>

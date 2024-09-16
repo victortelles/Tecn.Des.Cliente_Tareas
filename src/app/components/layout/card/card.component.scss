@@ -1,0 +1,55 @@
+.card {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    height: 100px;
+    cursor: pointer;
+    perspective: 1000px;
+    position: relative;
+    transition: transform 0.4s, background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    .card.matched {
+        background-color: green;
+    }
+
+    .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s ease;
+    }
+
+    &.flipped .card-inner {
+        transform: rotateY(180deg);
+    }
+
+    &.matched {
+        background-color: rgb(0, 200, 0) !important;
+    }
+
+    .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .card-front {
+        background-color: gray;
+    }
+
+    .card-back {
+        transform: rotateY(180deg);
+        font-size: 24px;
+        color: black;
+    }
+}

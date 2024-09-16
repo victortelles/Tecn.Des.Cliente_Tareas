@@ -1,0 +1,13 @@
+<section class="modal-overlay" *ngIf="true">
+    <div class="modal-content">
+        <h2>¡Felicidades!</h2>
+        <p>Has encontrado todos los pares.</p>
+        <p><strong>Resultados:</strong></p>
+        <ul>
+            <li><strong>Intentos:</strong> {{ moves }}</li>
+            <li><strong>Puntaje:</strong> {{ score }}</li>
+            <li><strong>Tiempo:</strong> {{ time }}</li>
+        </ul>
+        <button (click)="onStartNewGame()">Iniciar otra partida</button>
+    </div>
+</section>
