@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-score',
   standalone: true,
   imports: [],
   templateUrl: './score.component.html',
-  styleUrl: './score.component.scss'
+  styleUrls: ['./score.component.scss']
 })
 export class ScoreComponent {
-score: number = 0;
+  @Input() score: number = 0;
 
 }

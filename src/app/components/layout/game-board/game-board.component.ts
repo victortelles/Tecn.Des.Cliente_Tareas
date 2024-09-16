@@ -13,7 +13,10 @@ import { CommonModule } from '@angular/common';
 export class GameBoardComponent {
   cards: { id: number, content: string, isFlipped: boolean, isMatched: boolean }[] = [];
   flippedCardIndices: number[] = [];
+  //num. Intentos
   @Output() movesChanged = new EventEmitter<number>();
+  // Score
+  @Output() scoreChanged = new EventEmitter<number>();
 
   constructor() {
     this.generateCards();
@@ -69,6 +72,7 @@ export class GameBoardComponent {
       secondCard.isMatched = true;
       //test
       console.log('Cartas coinciden: ', firstCard, secondCard);
+      this.scoreChanged.emit(20);
     } else {
       // Si no coinciden, voltear de nuevo las cartas
       firstCard.isFlipped = false;

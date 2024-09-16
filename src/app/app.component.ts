@@ -16,6 +16,7 @@ export class AppComponent {
   title = 'memorama';
   moves: number = 0;
   matches = 0;
+  score: number = 0;
 
   onMovesChanged(movesCount: number) {
     this.moves += movesCount;
@@ -23,5 +24,9 @@ export class AppComponent {
 
   onMatchesChanged(matches: number): void {
     this.matches = matches;
+  }
+
+  onScoreChanged(scoreIncrement: number) {
+    this.score += scoreIncrement;
   }
 }

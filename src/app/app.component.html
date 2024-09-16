@@ -5,11 +5,14 @@
 
     <section class="game-info">
         <app-attempts [attempts]="moves"></app-attempts>
-        <app-score></app-score>
+        <app-score [score]="score"></app-score>
         <app-timer></app-timer>
     </section>
 
     <section class="game-board">
-        <app-game-board (movesChanged)="onMovesChanged($event)"></app-game-board>
+        <app-game-board
+            (movesChanged)="onMovesChanged($event)"
+            (scoreChanged)="onScoreChanged($event)">
+        </app-game-board>
     </section>
 </div>
