@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class GameBoardComponent {
   cards: { id: number, content: string, isFlipped: boolean, isMatched: boolean }[] = [];
   flippedCardIndices: number[] = [];
+  consecutiveMatches: number = 0;
   //num. Intentos
   @Output() movesChanged = new EventEmitter<number>();
   // Score
@@ -70,13 +71,25 @@ export class GameBoardComponent {
       // Si coinciden, marcar como 'Matched'
       firstCard.isMatched = true;
       secondCard.isMatched = true;
+      //Consecutivos score
+      this.consecutiveMatches++;
+
+      let points = 20;
+      //Mecanica de dobles puntaje
+      if (this.consecutiveMatches > 1) {
+        points = 20 * this.consecutiveMatches;
+      }
+      this.scoreChanged.emit(points);
+
       //test
       console.log('Cartas coinciden: ', firstCard, secondCard);
-      this.scoreChanged.emit(20);
     } else {
       // Si no coinciden, voltear de nuevo las cartas
       firstCard.isFlipped = false;
       secondCard.isFlipped = false;
+      //Restar puntaje
+      this.scoreChanged.emit(-5);
+      this.consecutiveMatches = 0;
     }
     this.flippedCardIndices = [];
   }

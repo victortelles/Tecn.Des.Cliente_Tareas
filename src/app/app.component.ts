@@ -18,14 +18,17 @@ export class AppComponent {
   matches = 0;
   score: number = 0;
 
+  // Numero de intentos
   onMovesChanged(movesCount: number) {
     this.moves += movesCount;
   }
 
+  //Match de cartas
   onMatchesChanged(matches: number): void {
     this.matches = matches;
   }
 
+  //score
   onScoreChanged(scoreIncrement: number) {
     this.score += scoreIncrement;
   }
