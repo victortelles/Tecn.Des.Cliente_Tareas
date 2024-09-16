@@ -12,7 +12,9 @@
     <section class="game-board">
         <app-game-board
             (movesChanged)="onMovesChanged($event)"
-            (scoreChanged)="onScoreChanged($event)">
+            (scoreChanged)="onScoreChanged($event)"
+            (timerStarted)="startTimer()"
+            (timerStopped)="stopTimer()">
         </app-game-board>
     </section>
 </div>

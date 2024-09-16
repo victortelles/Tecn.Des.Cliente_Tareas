@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
+import { TimerComponent } from '../timer/timer.component';
 
 @Component({
   selector: 'app-game-board',
   standalone: true,
-  imports: [CardComponent, CommonModule],
+  imports: [CardComponent, CommonModule, TimerComponent],
   templateUrl: './game-board.component.html',
   styleUrls: ['./game-board.component.scss']
 })
@@ -18,6 +19,9 @@ export class GameBoardComponent {
   @Output() movesChanged = new EventEmitter<number>();
   // Score
   @Output() scoreChanged = new EventEmitter<number>();
+  //Timer
+  @Output() timerStarted = new EventEmitter<void>();
+  @Output() timerStopped = new EventEmitter<void>();
 
   constructor() {
     this.generateCards();
@@ -47,6 +51,11 @@ export class GameBoardComponent {
     if (this.flippedCardIndices.length < 2 && !card.isFlipped && !card.isMatched) {
       card.isFlipped = true;
       this.flippedCardIndices.push(index);
+
+      // Iniciar tiempo
+      if (this.flippedCardIndices.length === 1) {
+        this.timerStarted.emit();
+      }
     }
 
     //Si se han volteado 2 cartas, establecer tiempo para validar

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ScoreComponent } from './components/layout/score/score.component';
 import { TimerComponent } from './components/layout/timer/timer.component';
@@ -18,6 +18,8 @@ export class AppComponent {
   matches = 0;
   score: number = 0;
 
+  @ViewChild(TimerComponent) timerComponent!: TimerComponent;
+
   // Numero de intentos
   onMovesChanged(movesCount: number) {
     this.moves += movesCount;
@@ -32,4 +34,18 @@ export class AppComponent {
   onScoreChanged(scoreIncrement: number) {
     this.score += scoreIncrement;
   }
+
+  //Timer
+  startTimer() {
+    if (this.timerComponent) {
+      this.timerComponent.startTimer();
+    }
+  }
+
+  stopTimer() {
+    if (this.timerComponent) {
+      this.timerComponent.stopTimer();
+    }
+  }
+
 }
