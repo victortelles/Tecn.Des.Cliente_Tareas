@@ -46,17 +46,7 @@ http://localhos:4200
 
 *Disfruta del juego memorama*
 
-
-
-
-
-
-
-
-
-
-
 ## Enlaces
 1. [Tarea 1 Tarea CV en linea](https://github.com/victortelles/Tecn.Des.Cliente_Tareas/tree/tarea1)
 2. [Tarea 2 Aplicacion de CV en linea](https://github.com/victortelles/Tecn.Des.Cliente_Tareas/tree/tarea2)
-3. [Tarea 3 Memorama](https://github.com/victortelles/Tecn.Des.Cliente_Tareas.git)
+3. [Tarea 3 Memorama](https://github.com/victortelles/Tecn.Des.Cliente_Tareas/tree/tarea3)
