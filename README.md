@@ -1,5 +1,4 @@
-# Tecnologías de Desarrollo en el Cliente - Tareas
-# Memorama
+# Tarea 3 - Memorama
 
 ## Objectivo - Tarea
 Desarrollar un memorama utilizando Angular
