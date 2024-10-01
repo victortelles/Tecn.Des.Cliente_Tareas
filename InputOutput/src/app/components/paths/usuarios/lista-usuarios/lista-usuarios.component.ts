@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { UsuarioService, User } from '../../../../services/usuarios.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-lista-usuarios',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './lista-usuarios.component.html',
   styleUrl: './lista-usuarios.component.scss'
 })
