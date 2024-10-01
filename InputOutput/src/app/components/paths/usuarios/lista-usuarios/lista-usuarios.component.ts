@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { UsuarioService, User } from '../../../../services/usuarios.service';
-import { Usuario } from '../../../../models/usuario.model';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -21,7 +20,7 @@ export class ListaUsuariosComponent {
     });
   }
 
-  selectUser(user: Usuario){
+  selectUser(user: User){
     this.selectedUserId = user.id;
     this.userSelected.emit(user);
   }
