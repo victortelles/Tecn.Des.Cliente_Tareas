@@ -1,1 +1,11 @@
+<div *ngIf ="selectedUser; else noUserSelected">
+    <h2>{{ selectedUser.name }}</h2>
+    <p> Email: {{ selectedUser.email }}</p>
+    <button (click)="clearSelection()"> Limpiar </button>
+</div>
+
+<ng-template #noUserSelected>
+    <p> No hay usuario Seleccionado </p>
+</ng-template>
+
 <p>detalle-usuarios works!</p>

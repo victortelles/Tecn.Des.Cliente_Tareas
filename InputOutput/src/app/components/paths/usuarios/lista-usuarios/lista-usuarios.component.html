@@ -1,1 +1,9 @@
+<ul>
+    <li *ngFor = "let user of users"
+        [ngClass]="{'selected': user.id === selectedUserId}"
+        (click)="selectUser(user)">
+        {{ user.name }}
+    </li>
+</ul>
+
 <p>lista-usuarios works!</p>
