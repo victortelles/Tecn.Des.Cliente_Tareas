@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/layouts/navbar/navbar.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
 import { UsuariosComponent } from './components/paths/usuarios/usuarios.component';
@@ -11,9 +10,9 @@ import { DetalleUsuariosComponent } from './components/paths/usuarios/detalle-us
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterOutlet, NavbarComponent, FooterComponent, UsuariosComponent, ListaUsuariosComponent, DetalleUsuariosComponent],
+  imports: [CommonModule, RouterOutlet, NavbarComponent, FooterComponent, UsuariosComponent, ListaUsuariosComponent, DetalleUsuariosComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'InputOutput';
