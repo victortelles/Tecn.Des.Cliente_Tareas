@@ -1,7 +1,7 @@
 <ul>
-    <li *ngFor = "let user of users"
-        [ngClass]="{'selected': user.id === selectedUserId}"
+    <li *ngFor = "let user of users; let i = index"
+        [ngClass]="{'selected': user.id === selectedUserId, 'odd': i % 2 !==0, 'even': i % 2 === 0 }"
         (click)="selectUser(user)">
-        {{ user.name }}
+        <span class="user-name">{{ user.name }}</span>
     </li>
 </ul>
