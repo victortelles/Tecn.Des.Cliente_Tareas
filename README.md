@@ -51,3 +51,4 @@ http://localhos:4200
 1. [Tarea 1 Tarea CV en linea](https://github.com/victortelles/Tecn.Des.Cliente_Tareas/tree/tarea1)
 2. [Tarea 2 Aplicacion de CV en linea](https://github.com/victortelles/Tecn.Des.Cliente_Tareas/tree/tarea2)
 3. [Tarea 3 Memorama](https://github.com/victortelles/Tecn.Des.Cliente_Tareas/tree/tarea3)
+4. [Input/Output](https://github.com/victortelles/Tecn.Des.Cliente_Tareas/tree/InputOutput)
