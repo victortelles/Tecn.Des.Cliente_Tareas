@@ -28,6 +28,7 @@ git clone https://github.com/victortelles/Tecn.Des.Cliente_Tareas.git
 4. Accede a la carpeta del proyecto
 ```bash
 cd Tecn.Des.CLiente_Tareas
+cd Inputoutpu
 ```
 
 5. Instala las dependencias del proyecto
