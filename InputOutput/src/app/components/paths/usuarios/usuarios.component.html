@@ -1,1 +1,3 @@
 <h1>Usuarios</h1>
+<app-lista-usuarios (userSelected)="onUserSelected($event)"></app-lista-usuarios>
+<app-detalle-usuarios [selectedUser]="selectedUser" (clearUser)="onClearUser()"></app-detalle-usuarios>
