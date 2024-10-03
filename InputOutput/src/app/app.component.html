@@ -1,9 +1,16 @@
 <router-outlet>
   <main class="main">
     <app-navbar></app-navbar>
+
+    <section class="usuarios-section">
       <app-usuarios></app-usuarios>
-      <app-lista-usuarios></app-lista-usuarios>
-      <app-detalle-usuarios></app-detalle-usuarios>
+      <div class="usuarios-container">
+        <app-lista-usuarios></app-lista-usuarios>
+        <app-detalle-usuarios></app-detalle-usuarios>
+      </div>
+    </section>
+
+
     <app-footer></app-footer>
   </main>
 <router-outlet />
