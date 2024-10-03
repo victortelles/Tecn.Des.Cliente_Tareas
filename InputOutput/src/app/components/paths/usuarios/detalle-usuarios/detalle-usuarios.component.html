@@ -1,0 +1,21 @@
+<ng-template #noUserSelected>
+    <p> No hay usuario Seleccionado </p>
+</ng-template>
+
+<div *ngIf ="selectedUser; else noUserSelected">
+    <h2>{{ selectedUser.name }}</h2>
+    <p><b>Username:</b> {{ selectedUser.username }}</p>
+    <p><b>Email:</b> {{ selectedUser.email }}</p>
+    <p><b>Address:</b> {{ selectedUser.address.street }}, {{ selectedUser.address.suite }}, {{ selectedUser.address.city }} - {{ selectedUser.address.zipcode }}</p>
+    <p><b>Geo Location: Lat:</b> {{ selectedUser.address.geo.lat }}, Lng: {{ selectedUser.address.geo.lng }}</p>
+    <p><b>Phone:</b> {{ selectedUser.phone }}</p>
+    <p><b>Website:</b> {{ selectedUser.website }}</p>
+    <h3><b>Company</b></h3>
+    <p><b>name:</b> {{ selectedUser.company.name }}</p>
+    <p><b>CatchPhrase:</b> {{ selectedUser.company.catchPhrase }}</p>
+    <p><b>Business:</b> {{ selectedUser.company.bs }}</p>
+
+    <button (click)="clearSelection()"> Limpiar </button>
+</div>
+
+

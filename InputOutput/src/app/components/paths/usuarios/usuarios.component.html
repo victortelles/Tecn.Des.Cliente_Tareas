@@ -1,0 +1,5 @@
+<h1>Usuarios</h1>
+<div class="usuarios-layout">
+    <app-lista-usuarios (userSelected)="onUserSelected($event)"></app-lista-usuarios>
+    <app-detalle-usuarios [selectedUser]="selectedUser" (clearUser)="onClearUser()"></app-detalle-usuarios>
+</div>
